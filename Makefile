@@ -6,6 +6,7 @@ HFILES=$(shell find src -name *.h -type f)
 
 OBJS := $(patsubst %.c, $(BUILD)/%.o, $(CFILES))
 CFLAGS := \
+	-ansi \
 	-O3 \
 	-Wall \
 	-Werror
