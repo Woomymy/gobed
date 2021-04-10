@@ -23,6 +23,7 @@ $(BUILD)/%.o: %.c $(CFILES) $(HFILES)
 
 $(BUILD): $(OBJS)
 	@mkdir -p $(BUILD)
+	@echo -e " \x1b[96m[ BIN ]\x1b[m $(BUILD)/$(NAME)"
 	@$(CC) $(OBJS) $(DEVCFLAGS) -o $(BUILD)/$(NAME)
 
 run: $(BUILD)
@@ -36,4 +37,5 @@ clean:
 	@rm -rf $(BUILD)
 
 strip:
+	@echo -e " \x1b[96m[ STRIP ]\x1b[m $(BUILD)/$(NAME)"
 	@strip -s $(BUILD)/$(NAME)
