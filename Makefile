@@ -18,7 +18,7 @@ DEVCFLAGS := \
 
 $(BUILD)/%.o: %.c $(CFILES) $(HFILES)
 	@mkdir -p $(BUILD)/src
-	@echo -e " \x1b[96m[ C ]\x1b[m $<"
+	@echo -e " \x1b[96m[ $(CC) ]\x1b[m $<"
 	@$(CC) -c $(CFLAGS) $(DEVCFLAGS) -o $@ $<
 
 $(BUILD): $(OBJS)
@@ -34,6 +34,7 @@ all: $(BUILD)
 $(NAME): $(BUILD)
 
 clean:
+	@echo -e " \x1b[96m[ RM ]\x1b[m $(BUILD)"
 	@rm -rf $(BUILD)
 
 strip:
