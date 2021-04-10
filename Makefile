@@ -19,7 +19,7 @@ DEVCFLAGS := \
 $(BUILD)/%.o: %.c $(CFILES) $(HFILES)
 	@mkdir -p $(BUILD)/src
 	@echo -e " \x1b[96m[ $(CC) ]\x1b[m $<"
-	@$(CC) -c $(CFLAGS) $(DEVCFLAGS) -o $@ $<
+	@$(CC) -c $(CFLAGS) $(DEVCFLAGS) -I src -o $@ $<
 
 $(BUILD): $(OBJS)
 	@mkdir -p $(BUILD)

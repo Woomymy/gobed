@@ -2,7 +2,7 @@
  * Gobed
  * Copyright (C) 2021 Woomy4680-exe
  *
- * This file is part of SMRU.
+ * This file is part of Gobed.
  *
  * Gobed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
+#include "multiplier.h"
 int
 main(int argc, char** argv)
 {
@@ -33,22 +34,9 @@ main(int argc, char** argv)
 		return EXIT_FAILURE;
 	}
 	int time = 0;
-	int multiplier = 1; /* We use 1 because 0 is an absorbing number */
 	unsigned long len = strlen(argv[1]);
-	char suffix = argv[1][len - 1];
+	int multiplier = get_multiplier(argv[1][len - 1]);
 	short suffixed = 0;
-	if (suffix == 'm')
-	{
-		multiplier = 60;
-	}
-	else if (suffix == 'h')
-	{
-		multiplier = 60 * 60;
-	} 
-	else if (suffix == 'd')
-	{
-		multiplier = 60 * 60 * 24;
-	}
 	char ntime[200];
 	if (suffixed == 1) {
 		int i = 0;
