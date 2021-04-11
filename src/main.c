@@ -18,19 +18,20 @@
  * along with Gobed.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include<stdlib.h>
-#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 #include "multiplier.h"
+#include "usage.h"
 int
 main(int argc, char** argv)
 {
 	if (argc < 2)
 	{
 		fprintf(stderr, "\x1b[91mInvalid args!\x1b[m\n");
-		/* TODO: call usage() */
+		usage();
 		return EXIT_FAILURE;
 	}
 	int time = 0;
