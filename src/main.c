@@ -17,14 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with Gobed.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "time.h"
 #include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
+#include <unistd.h>
+#include "time.h"
 #include "multiplier.h"
 #include "usage.h"
+
 int
 main(int argc, char** argv)
 {
