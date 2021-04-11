@@ -1,6 +1,7 @@
 #include <string.h>
 #include "multiplier.h"
 #include <stdlib.h>
+
 int
 get_time(char* time)
 {
