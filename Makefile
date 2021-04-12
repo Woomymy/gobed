@@ -28,9 +28,6 @@ $(BUILD): $(OBJS)
 	@echo -e " \x1b[96m[ BIN ]\x1b[m $(BUILD)/$(NAME)"
 	@$(CC) $(OBJS) $(DEVCFLAGS) -o $(BUILD)/$(NAME)
 
-run: $(BUILD)
-	@$(BUILD)/$(NAME)
-
 all: $(BUILD)
 
 $(NAME): $(BUILD)
