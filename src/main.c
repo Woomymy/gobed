@@ -23,7 +23,6 @@
 #include "time.h"
 #include "multiplier.h"
 #include "usage.h"
-
 int
 main(int argc, char** argv)
 {
@@ -34,7 +33,7 @@ main(int argc, char** argv)
 		usage();
 		return EXIT_FAILURE;
 	}
-	
+		
 	if (sleep(get_time(argv[1])) == 1)
 	{
 		fprintf(stderr, "\x1b[91mUnable to sleep! (maybe we need sleeping pills?)\x1b[m");
