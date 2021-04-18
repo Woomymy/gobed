@@ -12,7 +12,7 @@ get_time(char* time)
 	char ntime[200];
 	int t;
 	if (suffixed == 1) {
-		int i = 0;
+		unsigned int i = 0;
 		for (i = 0; i < len - 1 ; i++)
 		{
 			ntime[i] = time[i];
