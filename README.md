@@ -9,13 +9,15 @@ Gobed is a "sleep" alternative with more functions
 
 ```sh
 # Result can be found at build/gobed
-make -j$(nproc)
+meson setup build/
+cd build && ninja
 ```
 
 ```sh
 # Use another compiler to build gobed
 
-CC=clang make -j$(nproc)
+CC=clang meson setup build/
+cd build && ninja
 
 ```
 
