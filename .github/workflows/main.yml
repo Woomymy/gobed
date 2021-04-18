@@ -8,12 +8,31 @@ on:  # yamllint disable-line rule:truthy
     branches: [main]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macOS-latest, ubuntu-latest]
+
+  linux:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - run: pip install meson ninja
+      - run: meson setup build/
+        env:
+          CC: gcc
+      - run: cd build && ninja
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - run: brew install gcc
+      - run: pip install meson ninja
+      - run: meson setup build/
+        env:
+          CC: gcc
       - name: Build
-        run: make
+        run: cd build && ninja
