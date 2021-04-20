@@ -45,3 +45,8 @@ jobs:
           CC: gcc
       - name: Test
         run: ninja -C build test
+      - run: meson setup build/
+        env:
+          CC: clang
+      - name: Test with clang
+        run: ninja -C build test
