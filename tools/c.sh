@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-
-find src -iname "*.c" -type f
+cd src
+find . -iname "*.c" -type f
