@@ -16,13 +16,21 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: '3.x'
+      - name: Install Clang
+        run: apt install clang
       - run: pip install meson ninja
       - run: meson setup build/
         env:
           CC: gcc
       - name: Test
         run: ninja -C build test
-
+      - name: Remove build dir
+        run: rm -rf build
+      - run: meson setup build/
+        env:
+          CC: clang
+      - name: Test with clang
+        run: ninja -C build test
   macos:
     runs-on: macos-latest
     steps:
@@ -30,7 +38,7 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: '3.x'
-      - run: brew install gcc
+      - run: brew install gcc clang
       - run: pip install meson ninja
       - run: meson setup build/
         env:
