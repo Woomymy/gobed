@@ -1,7 +1,6 @@
 cfiles = [
 	'../src/multiplier.c',
-	'../src/time.c',
-	'main.c'
+	'../src/time.c'
 ]
 cflags = [
 	'-ansi',
@@ -12,6 +11,9 @@ cflags = [
 	'-Werror',
 ]
 
-e = executable('gobedtest', sources: cfiles, c_args: cflags)
+gm_cfiles = cfiles
+gm_cfiles += 'get_mul.c'
 
-test('gobed', e)
+get_m = executable('get_mul_test', sources: gm_cfiles, c_args: cflags)
+
+test('gobed_get_multiplier', get_m)
