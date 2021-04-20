@@ -20,7 +20,8 @@ jobs:
       - run: meson setup build/
         env:
           CC: gcc
-      - run: cd build && ninja
+      - name: Test
+        run: ninja -C build test
 
   macos:
     runs-on: macos-latest
@@ -34,5 +35,5 @@ jobs:
       - run: meson setup build/
         env:
           CC: gcc
-      - name: Build
-        run: cd build && ninja
+      - name: Test
+        run: ninja -C build test
