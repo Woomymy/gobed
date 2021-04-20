@@ -1,4 +1,5 @@
 #include "../src/multiplier.h"
+#include <assert.h>
 
 int
 test_get_multiplier(void);
@@ -13,9 +14,9 @@ main(void)
 int
 test_get_multiplier(void)
 {
-	if (get_multiplier('m') != 60) return 1;
-	if (get_multiplier('h') != 60 * 60) return 1;
-	if (get_multiplier('d') != (60 * 60 * 24)) return 1;
-	if (get_multiplier('u') != 1) return 1; /* We expect get_multiplier to return one if suffix is invalid */
+	assert(get_multiplier('m') == 60);
+	assert(get_multiplier('h') == 60 * 60);
+	assert(get_multiplier('d') == (60 * 60 * 24));
+	assert(get_multiplier('u') == 1); /* We expect get_multiplier to return one if suffix is invalid */
 	return 0;
 }
