@@ -7,8 +7,7 @@ test_get_multiplier(void);
 int
 main(void)
 {
-	if (test_get_multiplier() == 1) return 1;
-	return 0;
+	return test_get_multiplier();
 }
 
 int
